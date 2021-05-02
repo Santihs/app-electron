@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Policías</title>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <h4 class="mt-2">Policias</h4>
+                <div id="lista_policias">
+                    
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div id="con-overflow">
+                    <form class="card card-body" id="policeForm">
+                        <fieldset>
+                            <div class="row">
+                                <legend>Datos Personales Policia</legend>
+                                <div class="form-group ml-1">
+                                    <label for="apellidoP" class="col-form-label">
+                                        Apellido Paterno
+                                        <input type="text" id="apellidoP" class="form-control"
+                                            placeholder="Apellido Paterno" autofocus required>
+                                    </label>
+                                    <!-- <div class="col-md-7"></div> -->
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label pl-1">
+                                        Apellido Materno
+                                        <input type="text" id="apellidoM" class="form-control"
+                                            placeholder="Apellido Materno" required>
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Nombre
+                                        <input type="text" id="nombre" class="form-control"
+                                            placeholder="Nombre" required>
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        C.I.
+                                        <input type="number" id="ci" class="form-control"
+                                            placeholder="C.I." required>
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Otorgado
+                                        <select name="dpto" id="otorgado" class="form-control" required>
+                                            <optgroup>
+                                                <option value="La Paz">La Paz</option>
+                                                <option value="Oruro">Oruro</option>
+                                                <option value="Potosi">Potosi</option>
+                                                <option value="Cochabamba">Cochabamba</option>
+                                                <option value="Chuquisaca">Chuquisaca</option>
+                                                <option value="Tarija">Tarija</option>
+                                                <option value="Pando">Pando</option>
+                                                <option value="Beni">Beni</option>
+                                                <option value="Santa Cruz">Santa Cruz</option>
+                                            </optgroup>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Serie
+                                        <input type="number" id="serie" class="form-control"
+                                            placeholder="Serie" required>
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Sección
+                                        <input type="number" id="seccion" class="form-control"
+                                            placeholder="Sección" required>
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Estado Civil
+                                        <input type="text" id="estadoCivil" class="form-control"
+                                            placeholder="Estado Civil" required>
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Lugar Nacimiento<input type="text" id="lugarNacimiento" class="form-control"
+                                        placeholder="Lugar Nacimiento">
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Fecha de Nacimiento
+                                        <input type="date" id="fechaNacimiento" class="form-control"
+                                            placeholder="Fecha Nacimiento" required>
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <hr>
+                        <fieldset class="pt-2">
+                            <div class="row">
+                                <legend>Datos de Oficio Policia</legend>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Profesión
+                                        <input type="text" id="profesion" class="form-control"
+                                            placeholder="Profesión" required>
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Grado
+                                        <input type="text" id="grado" class="form-control"
+                                            placeholder="Grado" required>
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Escalafón
+                                        <input type="text" id="escalafon" class="form-control"
+                                            placeholder="Escalafón" required>
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Libreta Serv. Militar
+                                        <input type="text" id="libreta" class="form-control"
+                                            placeholder="Libreta Serv. Militar" required>
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <hr>
+                        <fieldset class="pt-2">
+                            <div class="row">
+                                <legend>Domicilio Policia</legend>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Domicilio
+                                        <input type="text" id="domicilio" class="form-control"
+                                            placeholder="Domicilio" required>
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Zona
+                                        <input type="text" id="zona" class="form-control"
+                                            placeholder="Zona" required>
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Número
+                                        <input type="text" id="numeroDom" class="form-control"
+                                            placeholder="Número">
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <hr>
+                        <fieldset class="pt-2">
+                            <div class="row">
+                                <legend>Contacto Policia</legend>
+                                <div class="form-group ml-1">
+                                    <label for="apellidoP" class="col-form-label">
+                                        Teléfono
+                                        <input type="number" id="telefono" class="form-control"
+                                            placeholder="Teléfono">
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Celular
+                                        <input type="number" id="celular" class="form-control"
+                                            placeholder="Celular">
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Nombre Padre
+                                        <input type="text" id="nombrePadre" class="form-control"
+                                            placeholder="Nombre Padre">
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Nombre Madre
+                                        <input type="text" id="nombreMadre" class="form-control"
+                                            placeholder="Nombre Madre">
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        En emergencia llamar a
+                                        <input type="number" id="emergencia" class="form-control"
+                                            placeholder="Numero Emergencia" required>
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <hr>
+                        <fieldset class="pt-2">
+                            <div class="row">
+                                <legend>Datos Destino Policia</legend>
+                                <div class="form-group ml-1">
+                                    <label for="apellidoP" class="col-form-label">
+                                        Unidad
+                                        <input type="text" id="unidad" class="form-control"
+                                            placeholder="Unidad" required>
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Destino Actual
+                                        <input type="text" id="destino" class="form-control"
+                                            placeholder="Destino Actual" required>
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Fecha Ingreso Policía
+                                        <input type="date" id="fechaIngreso" class="form-control" required>
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Fecha de Destino
+                                        <input type="date" id="fechaDestino" class="form-control" required>
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Fecha Repliegue
+                                        <input type="date" id="fechaRepliegue" class="form-control"
+                                            placeholder="Fecha Repliegue" required>
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <hr>
+                        <fieldset class="pt-2 form-group">
+                            <div class="row">
+                                <legend>Otras Referencias</legend>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Conduce vehiculo
+                                        <div id="vehiculo">
+                                            <div class="form-check">
+                                                <label class="form-check-label"><input name="conduceVehiculo"
+                                                        class="form-check-input" type="radio" value="si">Si</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label"><input name="conduceVehiculo"
+                                                        class="form-check-input" type="radio" value="no">No</label>
+                                            </div>
+                                        </div>
+                                    </label>
+                    
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label ml-4">
+                                        Conduce motocicleta
+                                        <div id="motocicleta">
+                                            <div class="form-check">
+                                                <label class="form-check-label"><input name="conduceMoto"
+                                                        class="form-check-input" type="radio" value="si">Si</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <label class="form-check-label"><input name="conduceMoto"
+                                                        class="form-check-input" type="radio" value="no">No</label>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="form-group ml-2">
+                                    <label class="col-form-label">
+                                        Tipo licencia
+                                        <input type="text" id="licencia" class="form-control"
+                                            placeholder="Tipo Licencia" disabled>
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Otra ocupación
+                                        <input type="text" id="ocupacion" class="form-control"
+                                            placeholder="Otra ocupación">
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <button type="submit" class="btn btn-primary">Guardar Datos</button>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>
