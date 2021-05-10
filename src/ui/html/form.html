@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <title>Añadir un nuevo Familiar</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+    <div class="container animate__animated animate__fadeInDown">
+        <form id="formulario">
+            <fieldset>
+                <legend>Datos Personales Familiar</legend>
+                <div class="form-group">
+                    <label for="nombre_apellido">Nombres y Apellidos</label>
+                    <input type="text" class="form-control" id="nombre_apellido" placeholder="Nombres y Apellidos" autofocus required>
+                </div>
+                <div class="form-group">
+                    <label for="edad">Edad</label>
+                    <input type="number" class="form-control" id="edad" placeholder="Edad" required>
+                </div>
+                <div class="form-group">
+                    <label for="relacion">Relación</label>
+                    <input type="text" class="form-control" id="relacion" placeholder="Relación" required>
+                </div>
+                <div class="form-group">
+                    <label for="estado_civil">Estado Civil</label>
+                    <input type="text" class="form-control" id="estado_civil" placeholder="Estado Civil" required>
+                </div>
+                <div class="form-group">
+                    <label for="instruccion">Grado de Instrucción</label>
+                    <input type="text" class="form-control" id="instruccion" placeholder="Grado de Instruccion" required>
+                </div>
+                <div class="form-group">
+                    <label for="ocupacion">Ocupación</label>
+                    <input type="text" class="form-control" id="ocupacion" placeholder="Ocupación" required>
+                </div>
+                <button type="submit" class="btn btn-primary container" id="button-form">Agregar Familiar</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <script src="../js/form.js"></script>
+</body>
+
+</html>

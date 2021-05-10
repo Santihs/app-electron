@@ -5,21 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
     <title>Lista de Policías</title>
-    <link rel="stylesheet" href="./bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
-                <h4 class="mt-2">Policias</h4>
-                <div id="lista_policias">
-                    
-                </div>
-            </div>
-            <div class="col-md-8">
+            
+            <div class="col-md-8 animate__animated animate__fadeIn">
                 <div id="con-overflow">
                     <form class="card card-body" id="policeForm">
                         <fieldset>
@@ -27,7 +27,7 @@
                                 <legend>Datos Personales Policia</legend>
                                 <div class="form-group ml-1">
                                     <label for="apellidoP" class="col-form-label">
-                                        Apellido Paterno
+                                        Apellido Paterno 
                                         <input type="text" id="apellidoP" class="form-control"
                                             placeholder="Apellido Paterno" autofocus required>
                                     </label>
@@ -43,15 +43,14 @@
                                 <div class="form-group ml-1">
                                     <label class="col-form-label">
                                         Nombre
-                                        <input type="text" id="nombre" class="form-control"
-                                            placeholder="Nombre" required>
+                                        <input type="text" id="nombre" class="form-control" placeholder="Nombre"
+                                            required>
                                     </label>
                                 </div>
                                 <div class="form-group ml-1">
                                     <label class="col-form-label">
                                         C.I.
-                                        <input type="number" id="ci" class="form-control"
-                                            placeholder="C.I." required>
+                                        <input type="number" id="ci" class="form-control" placeholder="C.I." required>
                                     </label>
                                 </div>
                                 <div class="form-group ml-1">
@@ -75,15 +74,15 @@
                                 <div class="form-group ml-1">
                                     <label class="col-form-label">
                                         Serie
-                                        <input type="number" id="serie" class="form-control"
-                                            placeholder="Serie" required>
+                                        <input type="number" id="serie" class="form-control" placeholder="Serie"
+                                            required>
                                     </label>
                                 </div>
                                 <div class="form-group ml-1">
                                     <label class="col-form-label">
                                         Sección
-                                        <input type="number" id="seccion" class="form-control"
-                                            placeholder="Sección" required>
+                                        <input type="number" id="seccion" class="form-control" placeholder="Sección"
+                                            required>
                                     </label>
                                 </div>
                                 <div class="form-group ml-1">
@@ -96,7 +95,7 @@
                                 <div class="form-group ml-1">
                                     <label class="col-form-label">
                                         Lugar Nacimiento<input type="text" id="lugarNacimiento" class="form-control"
-                                        placeholder="Lugar Nacimiento">
+                                            placeholder="Lugar Nacimiento">
                                     </label>
                                 </div>
                                 <div class="form-group ml-1">
@@ -115,29 +114,28 @@
                                 <div class="form-group ml-1">
                                     <label class="col-form-label">
                                         Profesión
-                                        <input type="text" id="profesion" class="form-control"
-                                            placeholder="Profesión" required>
+                                        <input type="text" id="profesion" class="form-control" placeholder="Profesión"
+                                            required>
                                     </label>
                                 </div>
                                 <div class="form-group ml-1">
                                     <label class="col-form-label">
                                         Grado
-                                        <input type="text" id="grado" class="form-control"
-                                            placeholder="Grado" required>
+                                        <input type="text" id="grado" class="form-control" placeholder="Grado" required>
                                     </label>
                                 </div>
                                 <div class="form-group ml-1">
                                     <label class="col-form-label">
                                         Escalafón
-                                        <input type="text" id="escalafon" class="form-control"
-                                            placeholder="Escalafón" required>
+                                        <input type="text" id="escalafon" class="form-control" placeholder="Escalafón"
+                                            required>
                                     </label>
                                 </div>
                                 <div class="form-group ml-1">
                                     <label class="col-form-label">
                                         Libreta Serv. Militar
                                         <input type="text" id="libreta" class="form-control"
-                                            placeholder="Libreta Serv. Militar" required>
+                                            placeholder="Libreta Serv. Militar">
                                     </label>
                                 </div>
                             </div>
@@ -149,22 +147,20 @@
                                 <div class="form-group ml-1">
                                     <label class="col-form-label">
                                         Domicilio
-                                        <input type="text" id="domicilio" class="form-control"
-                                            placeholder="Domicilio" required>
+                                        <input type="text" id="domicilio" class="form-control" placeholder="Domicilio"
+                                            required>
                                     </label>
                                 </div>
                                 <div class="form-group ml-1">
                                     <label class="col-form-label">
                                         Zona
-                                        <input type="text" id="zona" class="form-control"
-                                            placeholder="Zona" required>
+                                        <input type="text" id="zona" class="form-control" placeholder="Zona" required>
                                     </label>
                                 </div>
                                 <div class="form-group ml-1">
                                     <label class="col-form-label">
                                         Número
-                                        <input type="text" id="numeroDom" class="form-control"
-                                            placeholder="Número">
+                                        <input type="text" id="numeroDom" class="form-control" placeholder="Número">
                                     </label>
                                 </div>
                             </div>
@@ -176,15 +172,13 @@
                                 <div class="form-group ml-1">
                                     <label for="apellidoP" class="col-form-label">
                                         Teléfono
-                                        <input type="number" id="telefono" class="form-control"
-                                            placeholder="Teléfono">
+                                        <input type="number" id="telefono" class="form-control" placeholder="Teléfono">
                                     </label>
                                 </div>
                                 <div class="form-group ml-1">
                                     <label class="col-form-label">
                                         Celular
-                                        <input type="number" id="celular" class="form-control"
-                                            placeholder="Celular">
+                                        <input type="number" id="celular" class="form-control" placeholder="Celular">
                                     </label>
                                 </div>
                                 <div class="form-group ml-1">
@@ -204,7 +198,7 @@
                                 <div class="form-group ml-1">
                                     <label class="col-form-label">
                                         En emergencia llamar a
-                                        <input type="number" id="emergencia" class="form-control"
+                                        <input type="text" id="emergencia" class="form-control"
                                             placeholder="Numero Emergencia" required>
                                     </label>
                                 </div>
@@ -215,10 +209,10 @@
                             <div class="row">
                                 <legend>Datos Destino Policia</legend>
                                 <div class="form-group ml-1">
-                                    <label for="apellidoP" class="col-form-label">
+                                    <label class="col-form-label">
                                         Unidad
-                                        <input type="text" id="unidad" class="form-control"
-                                            placeholder="Unidad" required>
+                                        <input type="text" id="unidad" class="form-control" placeholder="Unidad"
+                                            required>
                                     </label>
                                 </div>
                                 <div class="form-group ml-1">
@@ -237,14 +231,28 @@
                                 <div class="form-group ml-1">
                                     <label class="col-form-label">
                                         Fecha de Destino
-                                        <input type="date" id="fechaDestino" class="form-control" required>
+                                        <input type="date" id="fechaDestino" class="form-control">
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Motivo de Destino
+                                        <input type="text" id="motivoDestino" placeholder="Motivo Destino"
+                                            class="form-control">
                                     </label>
                                 </div>
                                 <div class="form-group ml-1">
                                     <label class="col-form-label">
                                         Fecha Repliegue
                                         <input type="date" id="fechaRepliegue" class="form-control"
-                                            placeholder="Fecha Repliegue" required>
+                                            placeholder="Fecha Repliegue">
+                                    </label>
+                                </div>
+                                <div class="form-group ml-1">
+                                    <label class="col-form-label">
+                                        Motivo de Repliegue
+                                        <input type="text" id="motivoRepliegue" class="form-control"
+                                            placeholder="Motivo Repliegue">
                                     </label>
                                 </div>
                             </div>
@@ -267,7 +275,7 @@
                                             </div>
                                         </div>
                                     </label>
-                    
+
                                 </div>
                                 <div class="form-group ml-1">
                                     <label class="col-form-label ml-4">
@@ -304,10 +312,17 @@
                     </form>
                 </div>
             </div>
-            
+            <div class="col-md-4 animate__animated animate__fadeInRight">
+                <div id="con-overflow">
+                    <h4 class="mt-2">Policias</h4>
+                    <div id="lista_policias">
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-    <script src="./app.js"></script>
+    <script src="../js/app.js"></script>
 </body>
 
 </html>

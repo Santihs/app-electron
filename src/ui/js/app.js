@@ -66,11 +66,12 @@ policeForm.addEventListener( 'submit', (e) => {
     const destino = document.getElementById('destino');
     const fechaIngreso = document.getElementById('fechaIngreso');
     const fechaDestino = document.getElementById('fechaDestino');
+    const motivoDestino = document.getElementById('motivoDestino');
+    const motivoRepliegue = document.getElementById('motivoRepliegue')
     const fechaRepliegue = document.getElementById('fechaRepliegue');
     const ocupacion = document.getElementById('ocupacion');
 
     const datos = {
-        id: ci.value,
         nombre: nombre.value,
         apellido_paterno: apellido_paterno.value,
         apellido_materno: apellido_materno.value,
@@ -97,6 +98,8 @@ policeForm.addEventListener( 'submit', (e) => {
         destino: destino.value,
         fecha_ingreso_policia: fechaIngreso.value,
         fecha_destino: fechaDestino.value,
+        motivo_destino: (motivoDestino.value.length > 0) ? licencia.value : null,
+        motivo_repliegue: (motivoRepliegue.value.length > 0) ? licencia.value : null,
         fecha_repliegue: fechaRepliegue.value,
         vehiculo: valorVehiculo,
         motocicleta: valorMotocicleta,
@@ -114,8 +117,8 @@ policeForm.addEventListener( 'submit', (e) => {
 const deletePolice = (id) => {
     const response = confirm('¿Esta seguro que desea eliminar este policia?')
     if( response ){
-        main.deletePolice(id);
-        renderPolicias()
+        const datos = main.deletePolice(id);
+        main.deleteDatos(datos);
     }
     return;
 }
@@ -136,9 +139,9 @@ const renderPolicias = () => {
           <b>Fecha de Nacimiento:</b> ${policia.fecha_nacimiento} <br> <b>C.I:</b> ${policia.ci}</p>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-outline-info" onclick="verDatosPolicia('${policia.id}')">Ver datos</button>
+            <button type="button" class="btn btn-outline-info" onclick="verDatosPolicia('${policia.ci}')">Ver Más...</button>
             <button type="button" class="btn btn-outline-success">Editar</button>
-            <button type="button" class="btn btn-outline-danger" onclick="deletePolice('${ policia.id }')">Eliminar</button>
+            <button type="button" class="btn btn-outline-danger" onclick="deletePolice('${ policia.ci }')">Eliminar</button>
         </div>
       </div>`
         fragment.appendChild(div)
@@ -148,8 +151,8 @@ const renderPolicias = () => {
 
 }
 
-const verDatosPolicia = (id) => {
-    main.createWindowChild(id);
+const verDatosPolicia = (ci) => {
+    main.createWindowChild(ci);
 }
 
 renderPolicias()

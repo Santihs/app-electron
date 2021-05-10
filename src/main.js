@@ -1,10 +1,14 @@
 const { BrowserWindow, Notification } = require('electron')
-const { getConnection } = require('./database/database');
+const { queryBD } = require('./database/queryBD')
 require('electron-reload')(__dirname)
 
 let window;
-let child;
-let idChild;
+let windowChild;
+let windowForm;
+let ciPolicia;
+let idForm;
+let isEdit;
+let idFamiliar;
 
 const createWindow = () => {
     window = new BrowserWindow({
@@ -17,11 +21,11 @@ const createWindow = () => {
             enableRemoteModule: true,
         }
     });
-    window.loadFile('src/ui/index.html');
+    window.loadFile('src/ui/html/index.html');
 }
 
-const createWindowChild = (id) => {
-    child = new BrowserWindow({
+const createWindowChild = (ci) => {
+    windowChild = new BrowserWindow({
         parent: window,
         modal: true,
         width: 1050,
@@ -33,61 +37,68 @@ const createWindowChild = (id) => {
             enableRemoteModule: true,
         }
     });
-    idChild = id;
-    child.loadFile('src/ui/look.html');
+    ciPolicia = ci;
+    windowChild.loadFile('src/ui/html/policia.html');
 }
 
-const getIdChild = () => {
-    return idChild;
+const createWindowForm = (ci_policia, edit, id_familiar) => {
+    windowForm = new BrowserWindow({
+        parent: windowChild,
+        modal: true,
+        width: 400,
+        height: 630,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false, // agregar esto para https://es.stackoverflow.com/questions/432445/electron-uncaught-referenceerror-require-is-not-defined
+            nodeIntegrationInWorker: true,
+            enableRemoteModule: true,
+        }
+    });
+    idForm = ci_policia;
+    isEdit = edit
+    idFamiliar = id_familiar;
+    windowForm.loadFile('src/ui/html/form.html')
 }
 
-const getPolices = () => {
-    const db = getConnection();
-    const row = db.prepare('SELECT * FROM datos ORDER BY id DESC');
-    const allPolices = row.all();
-    db.close();
-    return allPolices;
-}
-// getPolices()
-
-const createPolice = (datos) => {
-    try {
-        datos.ci = parseFloat(datos.ci)
-        datos.serie = parseFloat(datos.serie)
-        datos.seccion = parseFloat(datos.seccion)
-        datos.celular = parseFloat(datos.celular)
-        datos.telefono = parseFloat(datos.telefono)
-        datos.emergencia = parseFloat(datos.emergencia)
-
-        const db = getConnection();
-        const stmt = db.prepare('INSERT INTO datos VALUES(@id, @nombre, @apellido_paterno, @apellido_materno, @ci, @otorgado, @serie, @seccion, @estado_civil, @lugar_nacimiento, @fecha_nacimiento, @profesion, @grado, @escalafon, @servicio_militar, @domicilio, @zona, @numero, @telefono, @celular, @nombre_padre, @nombre_madre, @emergencia, @unidad, @destino, @fecha_ingreso_policia, @fecha_destino, @fecha_repliegue, @vehiculo, @motocicleta, @licencia, @otra_ocupacion)')
-
-        stmt.run(datos)
-
-        new Notification({
-            title: 'Un policia guardado exitosamente',
-            body: 'Se ha guardado un policia en el sistema'
-        }).show();
-    } catch (error) {
-        console.log(error)
-    } finally {
-        db.close()
-    }
-
+const getCiPolicia = () => {
+    return ciPolicia;
 }
 
-const deletePolice = (id) => {
-    const db = getConnection();
-    const stmt = db.prepare('DELETE FROM datos WHERE id = ?')
-    stmt.run(id)
-    db.close()
+const getIdForm = () => {
+    return idForm;
 }
+
+const getIsEdit = () => {
+    return isEdit;
+}
+
+const getWindowForm = () => {
+    return windowForm
+}
+
+const getIdFamiliar = () => {
+    return idFamiliar
+}
+
+const { getPolice, getPolices, createPolice, deletePolice, deleteDatos, getFamiliares, deleteFamiliar, createFamiliar, getFamiliar, updateFamiliar  } = queryBD(idForm);
 
 module.exports = {
+    createFamiliar,
+    createPolice,
     createWindow,
     createWindowChild,
+    createWindowForm,
+    getCiPolicia,
+    getFamiliar,
+    getFamiliares,
+    getIdFamiliar,
+    getIdForm,
+    getIsEdit,
+    getPolice,
     getPolices,
-    createPolice,
+    getWindowForm,
+    deleteDatos,
+    deleteFamiliar,
     deletePolice,
-    getIdChild,
+    updateFamiliar,
 }
