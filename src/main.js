@@ -1,4 +1,4 @@
-const { BrowserWindow, Notification } = require('electron')
+const { BrowserWindow } = require('electron')
 const { queryBD } = require('./database/queryBD')
 require('electron-reload')(__dirname)
 

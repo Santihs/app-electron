@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Santiago Huanacu Sanchez",
   "license": "ISC",
   "dependencies": {
     "animate.css": "^4.1.1",

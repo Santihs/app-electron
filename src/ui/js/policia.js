@@ -109,7 +109,6 @@ const deleteFamiliar = (id_familiar) => {
     const response = confirm('¿Esta seguro que desea eliminar este familiar?')
     if( response ){
         main.deleteFamiliar(id_familiar);
-        // cargarFamiliares();
     }
     return;
 }

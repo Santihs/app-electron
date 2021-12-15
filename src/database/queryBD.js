@@ -1,5 +1,6 @@
 
 const { getConnection, closeConnection } = require('./database');
+const { Notification } = require('electron')
 
 const queryBD = (ci_policia) => {
     
